@@ -34,11 +34,48 @@ export class Product {
             }
     }
 
+    updateName(name: string):void {
+        this.name = name;
+    }
+
     get name() {
         return this.props.name;
     }
 
     set name(name: string) {
-        this.props.name
+        this.props.name = name;
     }
+
+    get description() {
+        return this.props.description; 
+    }
+
+    set description(description: string) {
+        this.props.description = description;
+    }
+
+    get imageUrl() {
+        return this.props.imageUrl;
+    }
+
+    set imageUrl(imageUrl: string) {
+        this.props.imageUrl = imageUrl;
+    }
+
+    get price() {
+        return this.props.price;
+    }
+
+    set price(price: number) {
+        this.props.price = price;
+    }
+
+    get stockQuantity() {
+        return this.props.stockQuantity;
+    }
+
+    set stockQuantity(stockQuantity: number) {
+        this.props.stockQuantity;
+    }
+
 }
