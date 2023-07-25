@@ -13,6 +13,9 @@ export class ProductInMemoryRepository implements ProductRepositoryInterface {
     }
 
     async findAll(): Promise<Product[]> {
+        if(this.products.length === 0) {
+            throw new Error('Products not found!');
+        }
         return this.products;
     }
 

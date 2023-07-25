@@ -1,4 +1,4 @@
-import { Product, ProductProps } from "./product.entity";
+import { Product, ProductProps } from "../../domain/product.entity";
 
 
 describe('testing product entity', () => {
