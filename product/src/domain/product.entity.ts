@@ -54,6 +54,12 @@ export class Product {
         this.imageUrl = imageUrl;
     }
 
+    toJson() {
+        return {
+            ...this.props
+        }
+    }
+
     private get name() {
         return this.props.name;
     }
