@@ -13,20 +13,14 @@ export class ProductInMemoryRepository implements ProductRepositoryInterface {
     }
 
     async findAll(): Promise<Product[]> {
-        if(this.products.length === 0) {
-            throw new Error('Products not found!');
-        }
         return this.products;
     }
 
-    async findOne(id: string): Promise<Product> {
+    async findOne(id: string): Promise<Product | undefined> {
         const product = this.products.find(product => product.props.id === id);
-
-        if(!product) {
-            throw new Error('Product not found!');
+        if(product) {
+            return product;
         }
-
-        return product;
     }
 
     async deleteOne(id: string): Promise<void> {

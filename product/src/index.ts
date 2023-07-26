@@ -1,12 +1,9 @@
-import express from 'express';
+import { app } from "./infra/server"
 
 
-const app = express();
+const PORT = 3000;
 
 
-app.use(express.json());
-
-
-app.listen(3000, () => {
-    console.log('Listenning on port 3000')
-})
+app.listen(PORT, () => {
+    console.log(`App is listenning to port ${PORT}`);
+});
