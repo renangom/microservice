@@ -1,4 +1,3 @@
-import { Product, ProductProps } from "../../domain/product.entity";
 import { ProductInMemoryRepository } from "../../infra/db/product-in-memory-repository";
 import { CreateProductUseCase } from "../../application/CreateProductUseCase";
 
@@ -11,7 +10,7 @@ export interface Error {
 
 describe('should test create product use case', () => {
     it('should create a product', async () => {
-        const productInput:ProductProps = {
+        const productInput = {
             name: "Maçã",
             description: "Uma deliciona fruta cítrica e vermelha",
             imageUrl: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.ifrutus.com.br%2Fproduto%2Fmaca-red-argentina-unidade-70942&psig=AOvVaw0ennLhOik-Thl1iD9oXUXs&ust=1690311357247000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCMDoptKCqIADFQAAAAAdAAAAABAE",
@@ -29,7 +28,7 @@ describe('should test create product use case', () => {
     });
 
     it('should not create a product with negative price', async () => {
-        const productInput:ProductProps = {
+        const productInput = {
             name: "Maçã",
             description: "Uma deliciona fruta cítrica e vermelha",
             imageUrl: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.ifrutus.com.br%2Fproduto%2Fmaca-red-argentina-unidade-70942&psig=AOvVaw0ennLhOik-Thl1iD9oXUXs&ust=1690311357247000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCMDoptKCqIADFQAAAAAdAAAAABAE",
@@ -49,7 +48,7 @@ describe('should test create product use case', () => {
     });
 
     it('should not create a product with negative stock quantity', async () => {
-        const productInput:ProductProps = {
+        const productInput = {
             name: "Maçã",
             description: "Uma deliciona fruta cítrica e vermelha",
             imageUrl: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.ifrutus.com.br%2Fproduto%2Fmaca-red-argentina-unidade-70942&psig=AOvVaw0ennLhOik-Thl1iD9oXUXs&ust=1690311357247000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCMDoptKCqIADFQAAAAAdAAAAABAE",
