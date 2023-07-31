@@ -1,11 +1,12 @@
 import { Product } from "./product.entity";
+import { ProductDTO } from "./productDTO";
 
 
 
 export interface ProductRepositoryInterface {
-    insert(product:Product): Promise<Product>;
-    findAll():Promise<Product[]>;
-    findOne(id: string): Promise<Product | undefined>;
+    insert(product:Product): Promise<ProductDTO>;
+    findAll():Promise<ProductDTO[]>;
+    findOne(id: string): Promise<ProductDTO | undefined>;
     deleteOne(id: string): Promise<void>;
-    update(product: Product, id: string): Promise<Product | undefined>;
+    update(product: Product, id: string): Promise<ProductDTO | undefined>;
 }

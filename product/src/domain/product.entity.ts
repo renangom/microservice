@@ -1,103 +1,110 @@
 import crypto from 'crypto';
 
 
-export type ProductProps = {
-    id?: string,
-    name: string,
-    description: string,
-    imageUrl: string,
-    price: number,
-    stockQuantity: number;
-}
-
-
 export class Product {
-    public props: Required<ProductProps>;
-    
-    constructor( name: string, description: string,
-         imageUrl: string,  price: number,  stockQuantity: number, productId?:string) {
-            if(stockQuantity < 0) {
-                throw new Error("Stock can't be negative");
-            }
+    private _id: string;
+    private _name: string;
+    private _description: string;
+    private _imageUrl: string;
+    private _price: number;
+    private _stockQuantity: number;
 
-            if(price < 0) {
-                throw new Error("Price can't be negative");
-            }
+    constructor(
+        name: string,
+        description: string,
+        imageUrl: string,
+        price: number,
+        stockQuantity: number,
+        productId?: string
+    ) {
+        if (stockQuantity < 0) {
+            throw new Error("Stock can't be negative");
+        }
 
-            this.props = {
-                id : productId || crypto.randomUUID(),
-                description,
-                name,
-                imageUrl,
-                price,
-                stockQuantity
-            }
+        if (price < 0) {
+            throw new Error("Price can't be negative");
+        }
+
+        this._id = productId || crypto.randomUUID();
+        this._description = description;
+        this._name = name;
+        this._imageUrl = imageUrl;
+        this._price = price;
+        this._stockQuantity = stockQuantity;
     }
 
-    updateName(name: string):void {
-        this.name = name;
+    updateName(name: string): void {
+        this._name = name;
     }
 
     updateDescription(description: string): void {
-        this.description = description;
+        this._description = description;
     }
 
-    updateStockQuantity(stockQuantity:number): void {
-        this.stockQuantity = stockQuantity;
+    updateStockQuantity(stockQuantity: number): void {
+        this._stockQuantity = stockQuantity;
     }
 
     updatePrice(price: number): void {
-        this.price = price;
+        this._price = price;
     }
 
     updateImageUrl(imageUrl: string): void {
-        this.imageUrl = imageUrl;
+        this._imageUrl = imageUrl;
     }
 
     toJson() {
         return {
-            ...this.props
+            id: this._id,
+            description: this._description,
+            name: this._name,
+            imageUrl: this._imageUrl,
+            price: this._price,
+            stockQuantity: this._stockQuantity
         }
     }
 
-    private get name() {
-        return this.props.name;
+    public get name() {
+        return this._name;
     }
 
-    private set name(name: string) {
-        this.props.name = name;
+    public set name(name: string) {
+        this._name = name;
     }
 
-    private get description() {
-        return this.props.description; 
+    public get description() {
+        return this._description;
     }
 
-    private set description(description: string) {
-        this.props.description = description;
+    public set description(description: string) {
+        this._description = description;
     }
 
-    private get imageUrl() {
-        return this.props.imageUrl;
+    public get imageUrl() {
+        return this._imageUrl;
     }
 
-    private set imageUrl(imageUrl: string) {
-        this.props.imageUrl = imageUrl;
+    public set imageUrl(imageUrl: string) {
+        this._imageUrl = imageUrl;
     }
 
-    private get price() {
-        return this.props.price;
+    public get price() {
+        return this._price;
     }
 
-    private set price(price: number) {
-        this.props.price = price;
+    public set price(price: number) {
+        this._price = price;
     }
 
-    private get stockQuantity() {
-        return this.props.stockQuantity;
+    public get stockQuantity() {
+        return this._stockQuantity;
     }
 
-    private set stockQuantity(stockQuantity: number) {
-        this.props.stockQuantity = stockQuantity;
+    public set stockQuantity(stockQuantity: number) {
+        this._stockQuantity = stockQuantity;
     }
 
+    public get id() {
+        return this._id;
+    }
 }
